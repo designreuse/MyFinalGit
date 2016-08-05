@@ -1,0 +1,117 @@
+#navbar {
+	/* fontcolor : white; */
+}
+#main{
+	min-height : 100%;
+}
+
+#imagelogo {
+	height :  50px;
+	width : 70px;
+	position : absolute;
+    top: 0px;
+    left : 20px;
+
+}
+
+#myCarousel {
+	margin-top : 80px;
+}
+
+#myCarousel .item {
+	height : 400px;
+	background-position:center;
+ 	-webkit-background-size:cover;
+ 	-miz-background-size:cover;
+ 	background-size:cover;
+ 	-o-background-size:cover;
+}
+
+#slide1 {
+	 width: 100%;
+    height: auto;
+	background: url('../images/food.jpg') center center no-repeat ;
+	background-size: contain;
+}
+
+#slide2 {
+	width: 100%;
+    height: auto;
+	background: url('../images/clothes.jpg') center center no-repeat ;
+	background-size: contain;
+}
+
+#slide3 {
+	width: 100%;
+    height: auto;
+	background: url('../images/gadgets.png') center center no-repeat;
+	background-size: contain;
+}
+
+#slide4 {
+	 width: 100%;
+    height:auto;
+	background: url('../images/girls-shoes.gif') center center no-repeat; 
+	background-size: contain;
+}
+
+#slide5 {
+	width: 100%;
+    height: auto;
+	background: url('../images/sports-accessories-1482641.jpg') center center no-repeat ; 
+	background-size: contain;
+}
+
+#slide6 {
+	width: 100%;
+    height: auto;
+	background: url('../images/electonic items.jpg') center center no-repeat;
+	background-size: contain;
+}
+
+
+table {
+    width: auto;
+}
+
+th {
+    text-align: left;
+}
+
+th {
+    height: 25px;
+}
+
+td {
+    height: 15px;
+    vertical-align: bottom;
+    text-align: left;
+}
+
+th {
+    padding: 15px;
+    text-align: left;
+}
+
+th, td {
+    border-bottom: 1px solid #ddd;
+}
+th {
+    background-color: black;
+    color: white;
+}
+tr:hover {background-color: #f5f5f5}
+
+tr:nth-child(even) {background-color: #f2f2f2}
+
+#footer {
+	background-color: black;
+	color: grey;	
+}
+
+.col-md-4 cols{
+    position: relative;
+    min-height: 1px;
+    padding-right: 10px;
+    padding-left: 10px;
+}

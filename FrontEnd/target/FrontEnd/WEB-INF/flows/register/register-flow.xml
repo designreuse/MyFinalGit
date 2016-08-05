@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flow xmlns="http://www.springframework.org/schema/webflow"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.springframework.org/schema/webflow
+       http://www.springframework.org/schema/webflow/spring-webflow-2.0.xsd">
+
+    <var name="login" class="com.niit.musichub.model.User" />
+   
+	 <action-state id="addUserToLogin">
+        <evaluate expression="userDAOImpl.validate(requestParameters.user_id)" result="login.user" />
+        <transition to="invalidUserWarning" on-exception="java.io.IOException" />
+        <transition to="collectUserInfo" />
+    </action-state>
+	 
+    <view-state id="collectUserInfo" view= "collectUserInfo.jsp" model="login" >
+ 		<transition on="userInfoCollected" to="collectBillingDetail" />
+    </view-state>
+    
+     <view-state id="collectBillingDetail" view="collectBillingDetail.jsp" model="login">
+        <transition on="billingDetailCollected" to="collectShippingDetail" />
+        <transition on="backToCollectUserInfo" to="collectUserInfo" />
+    </view-state>
+
+    <view-state id="collectShippingDetail" view="collectShippingDetail.jsp" model="login">
+        <transition on="shippingDetailCollected" to="userConfirmation" />
+        <transition on="backToCollectUserInfo" to="collectUserInfo" />
+    </view-state>
+	
+	<view-state id="userConfirmation">
+        <transition on="userConfirmed" to="thankUser" />
+        <transition on="backToCollectShippingDetail" to="collectShippingDetail" />
+    </view-state>
+
+    <view-state id="thankUser">
+        <transition to="endState" />
+    </view-state>
+
+    <end-state id="endState" />
+
+    <view-state id="invalidUserWarning">
+        <transition to="endState" />
+    </view-state>
+
+    <end-state id="cancelRegister" view="cancelRegister.jsp" />
+
+    <global-transitions>
+        <transition on="cancel" to="cancelRegister" />
+    </global-transitions>
+
+</flow>
